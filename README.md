@@ -1,92 +1,142 @@
-Receipt Forecasting System
+# Receipt Forecasting System
+
 This project provides a time series forecasting solution for predicting receipt volumes in 2022 based on historical 2021 data. The system uses a custom LSTM (Long Short-Term Memory) neural network built from scratch in PyTorch and provides an interactive web dashboard for visualization.
-Overview
+
+---
+
+## 📊 Overview
+
 The Receipt Forecasting System processes daily receipt count data from 2021, trains a deep learning model to identify patterns and trends, and generates predictions for each month of 2022. The dashboard allows for parameter tuning and real-time model retraining.
-Requirements
 
-Python 3.9+
-PyTorch
-Flask
-NumPy, Pandas
-Chart.js (included via CDN)
-Font Awesome (included via CDN)
+---
 
-Getting Started
-Option 1: Running Locally
+## 🚀 Requirements
 
-Clone the repository
-Copygit clone https://github.com/yourusername/receipt-forecasting.git
+- Python 3.9+
+- PyTorch
+- Flask
+- NumPy, Pandas
+- Chart.js (via CDN)
+- Font Awesome (via CDN)
+
+---
+
+## 📅 Getting Started
+
+### Option 1: Running Locally
+
+#### 1. Clone the Repository
+```bash
+git clone https://github.com/yourusername/receipt-forecasting.git
 cd receipt-forecasting
+```
 
-Set up a virtual environment
-Copy# Windows
+#### 2. Set Up a Virtual Environment
+```bash
+# Windows
 python -m venv venv
 .\venv\Scripts\activate
 
 # macOS/Linux
 python -m venv venv
 source venv/bin/activate
+```
 
-Install dependencies
-Copypip install -r requirements.txt
+#### 3. Install Dependencies
+```bash
+pip install -r requirements.txt
+```
 
-Prepare the data
+#### 4. Prepare the Data
+- Place your 2021 receipt data in the `data/` directory as `receipts_2021.csv`
+- CSV Format: `Date`, `Receipt_Count`
 
-Place your 2021 receipt data in the data/ directory as receipts_2021.csv
-The CSV should have columns for date and receipt counts
+#### 5. Run the Application
+```bash
+python app.py
+```
 
+#### 6. Access the Dashboard
+Open your browser and go to:
+```
+http://localhost:5000
+```
 
-Run the application
-Copypython app.py
+---
 
-Access the dashboard
+### Option 2: Using Docker
 
-Open your browser and navigate to http://localhost:5000
+#### 1. Build the Docker Image
+```bash
+docker build -t receipt-forecaster .
+```
 
+#### 2. Run the Container
+```bash
+docker run -p 5000:5000 receipt-forecaster
+```
 
+#### 3. Access the Dashboard
+Open your browser and go to:
+```
+http://localhost:5000
+```
 
-Option 2: Using Docker
+---
 
-Build the Docker image
-Copydocker build -t receipt-forecaster .
+## 🔬 Using the Dashboard
 
-Run the container
-Copydocker run -p 5000:5000 receipt-forecaster
+### 📅 View Forecasts
+- The dashboard displays monthly and daily receipt predictions for 2022.
 
-Access the dashboard
+### ⚙️ Adjust Model Parameters
+- **Input Sequence Length**: Number of historical days considered (7-365)
+- **Hidden Dimension**: Size of LSTM hidden state (16-256)
+- **LSTM Layers**: Number of stacked LSTM layers (1-4)
 
-Open your browser and navigate to http://localhost:5000
+### 🚀 Retrain the Model
+- After adjusting parameters, click **Retrain Model** to update the forecasts.
 
+---
 
+## 📁 Project Structure
+```
+receipt-forecasting/
+├── app.py               # Flask web application
+├── model.py             # LSTM model logic
+├── train.py             # Training script
+├── data/
+│   └── receipts_2021.csv  # Input data
+├── templates/
+│   └── index.html       # Dashboard UI
+├── models/              # Saved model files
+├── Dockerfile           # Docker configuration
+└── requirements.txt     # Python dependencies
+```
 
-Using the Dashboard
+---
 
-View Forecasts: The dashboard automatically displays monthly and daily receipt predictions for 2022.
-Adjust Model Parameters:
+## 🧰 Model Architecture
 
-Input Sequence Length: Number of historical days the model considers for each prediction (7-335 days)
-Hidden Dimension: Size of the LSTM hidden state, affecting model complexity (16-256)
-LSTM Layers: Number of stacked LSTM layers (1-4)
+- **Input Features**: Receipt counts, day of week, and month (one-hot encoded)
+- **Architecture**: Multi-layer LSTM with configurable hidden layers
+- **Training**: Sliding window with MSE loss function
+- **Output**: Daily forecasts, aggregated into monthly totals
 
+---
 
-Retrain the Model: After adjusting parameters, click "Retrain Model" to regenerate forecasts with your new configuration.
+## 🙌 License
+MIT License
 
-Project Structure
-Copyreceipt-forecasting/
-├── app.py              # Flask web application
-├── model.py            # LSTM model implementation
-├── train.py            # Training script
-├── data/               # Data directory
-│   └── receipts_2021.csv  # Historical receipt data
-├── templates/          # HTML templates
-│   └── index.html      # Dashboard interface
-├── models/             # Saved model files
-├── Dockerfile          # Docker configuration
-└── requirements.txt    # Python dependencies
-Model Architecture
-The forecasting system uses a custom LSTM neural network with the following components:
+---
 
-Input Features: Historical receipt counts, day of week, month information
-Architecture: Multi-layer LSTM with configurable hidden dimensions
-Training Method: Sliding window approach with mean squared error loss
-Output: Daily predictions aggregated into monthly forecasts
+## 🙋 Contributing
+Pull requests are welcome! For major changes, please open an issue first to discuss what you'd like to change.
+
+---
+
+## 🙏 Acknowledgements
+- PyTorch
+- Flask
+- Chart.js
+- The Open Source Community
