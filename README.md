@@ -4,13 +4,13 @@ This project provides a time series forecasting solution for predicting receipt 
 
 ---
 
-## 📊 Overview
+##  Overview
 
 The Receipt Forecasting System processes daily receipt count data from 2021, trains a deep learning model to identify patterns and trends, and generates predictions for each month of 2022. The dashboard allows for parameter tuning and real-time model retraining.
 
 ---
 
-## 🚀 Requirements
+##  Requirements
 
 - Python 3.9+
 - PyTorch
@@ -21,7 +21,7 @@ The Receipt Forecasting System processes daily receipt count data from 2021, tra
 
 ---
 
-## 📅 Getting Started
+##  Getting Started
 
 ### Option 1: Running Locally
 
@@ -94,7 +94,7 @@ http://localhost:5000
 - **Hidden Dimension**: Size of LSTM hidden state (16-256)
 - **LSTM Layers**: Number of stacked LSTM layers (1-4)
 
-### 🚀 Retrain the Model
+###  Retrain the Model
 - After adjusting parameters, click **Retrain Model** to update the forecasts.
 
 ---
@@ -116,7 +116,7 @@ receipt-forecasting/
 
 ---
 
-## 🧰 Model Architecture
+##  Model Architecture
 
 - **Input Features**: Receipt counts, day of week, and month (one-hot encoded)
 - **Architecture**: Multi-layer LSTM with configurable hidden layers
@@ -125,12 +125,12 @@ receipt-forecasting/
 
 ---
 
-## 🙌 License
+##  License
 MIT License
 
 ---
 
-## 🙋 Contributing
+##  Contributing
 Pull requests are welcome! For major changes, please open an issue first to discuss what you'd like to change.
 
 ---
