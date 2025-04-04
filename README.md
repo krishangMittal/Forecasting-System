@@ -84,9 +84,9 @@ http://localhost:5000
 
 ---
 
-## 🔬 Using the Dashboard
+##  Using the Dashboard
 
-### 📅 View Forecasts
+###  View Forecasts
 - The dashboard displays monthly and daily receipt predictions for 2022.
 
 ### ⚙️ Adjust Model Parameters
@@ -99,7 +99,7 @@ http://localhost:5000
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 ```
 receipt-forecasting/
 ├── app.py               # Flask web application
