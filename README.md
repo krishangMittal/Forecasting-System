@@ -23,7 +23,8 @@ The Receipt Forecasting System processes daily receipt count data from 2021, tra
 
 ##  Getting Started
 
-### Option 1: Running Locally
+### Option 1: Running Locally (Manual Setup)  
+>  *If you want a quicker setup, consider using **Option 2 (Docker)** below.* 
 
 #### 1. Clone the Repository
 ```bash
